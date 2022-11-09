@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Businesscard</string>
+    <string name="name">Farid Mitri</string>
+    <string name="profession">Android Developer</string>
+    <string name="phone_number">+96170941618</string>
+    <string name="email_text">faridmitri@gmail.com</string>
+    <string name="share_text">\@andoidDev</string>
+</resources>
