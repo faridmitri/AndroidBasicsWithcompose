@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ArtSpaceapp</string>
+    <string name="img1Name">texture abstract structure colorful</string>
+    <string name="img1Year">2016</string>
+    <string name="img2Name">background-pattern-flowers-texture</string>
+    <string name="img2Year">2016</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+</resources>
