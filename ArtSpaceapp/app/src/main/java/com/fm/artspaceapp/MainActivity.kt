@@ -47,37 +47,56 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ArtSpaceapp(){
+fun ArtSpaceapp() {
 
-    val img = arrayOf(R.drawable.img1,R.drawable.img2)
-    val desc = arrayOf(R.string.img1Name,R.string.img2Name)
-    val year = arrayOf(R.string.img1Year,R.string.img2Year)
-    var i by remember { mutableStateOf( 0) }
+    val img = arrayOf(R.drawable.img1, R.drawable.img2)
+    val desc = arrayOf(R.string.img1Name, R.string.img2Name)
+    val year = arrayOf(R.string.img1Year, R.string.img2Year)
+    var i by remember { mutableStateOf(0) }
 
-    Column(horizontalAlignment = CenterHorizontally,
+    Column(
+        horizontalAlignment = CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()) {
-        DrawImag(img[i],desc[i],Modifier.border(5.dp, color = Color.Gray).size(300.dp))
+        modifier = Modifier.fillMaxSize()
+    ) {
+        DrawImag(img[i], desc[i],
+            Modifier
+                .border(5.dp, color = Color.Gray)
+                .weight(3f))
         Spacer(Modifier.height(10.dp))
-        text(desc[i],30,Modifier.align(CenterHorizontally)
-            .padding(all = 25.dp).border(1.dp, color = Color.Gray))
-        text(year[i],30,Modifier.align(Alignment.Start)
-           .border(1.dp, color = Color.Gray))
+        text(
+            desc[i], 30, Modifier
+                .padding(all = 25.dp)
+                .border(1.dp, color = Color.Gray)
+                .weight(1f)
+        )
+        text(
+            year[i], 30, Modifier
+                .border(1.dp, color = Color.Gray)
+        )
         Spacer(Modifier.height(10.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .size(48.dp),
+                .size(48.dp)
+                .weight(1f),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         )
-        { Button(onClick = { if (i>0) { i -=1} }
-            ) {
-            Text(stringResource(R.string.previous), fontSize = 24.sp)
-        }
-            Spacer(modifier = Modifier.size(size = 50.dp))
-            Button(onClick = {if (i<2) { i += 1
+        {
+            Button(onClick = {
+                if (i > 0) {
+                    i -= 1
+                }
             }
+            ) {
+                Text(stringResource(R.string.previous), fontSize = 24.sp)
+            }
+            Spacer(modifier = Modifier.size(size = 50.dp))
+            Button(onClick = {
+                if (i < 2) {
+                    i += 1
+                }
             }) {
                 Text(stringResource(R.string.next), fontSize = 24.sp)
             }
@@ -89,16 +108,17 @@ fun ArtSpaceapp(){
 
 
 @Composable
-fun DrawImag(resid:Int,descid:Int,modifier:Modifier){
-    Image(painter = painterResource(resid), contentDescription = stringResource(id = descid),
-          modifier = modifier  )
+fun DrawImag(resid: Int, descid: Int, modifier: Modifier) {
+    Image(
+        painter = painterResource(resid), contentDescription = stringResource(id = descid),
+        modifier = modifier
+    )
 }
 
 @Composable
-fun text(desc:Int,font:Int,modifier:Modifier){
-    Text(stringResource(desc), fontSize = font.sp,modifier=modifier)
+fun text(desc: Int, font: Int, modifier: Modifier) {
+    Text(stringResource(desc), fontSize = font.sp, modifier = modifier)
 }
-
 
 
 @Preview(showBackground = true)
